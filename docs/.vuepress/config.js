@@ -16,42 +16,47 @@ module.exports = {
   },
   themeConfig: {
     nav:[ // 导航栏配置
-      {text: '前端基础', link: '/base/' },
-      {text: '前端进阶', link: '/senior/' },
-      {text: '算法题库', link: '/algorithm/'},
+      {text: '基础', link: '/base/' },
+      {text: '进阶', link: '/senior/' },
+      {text: '算法', link: '/algorithm/'},
       {text: '诗和远方', link: '/others/'},
       {text: 'Github', link: 'https://github.com/ZhengDian1024'}
     ],
     // sidebar:{
-    //   '/base/': [
-    //       {
-    //         title: '前端积累',
-    //         children: [
-    //           '/base/1.html',
-    //           '/base/2.html',
-    //           '/base/3.html',
-    //           '/base/4.html',
-    //           '/base/5.html',
-    //           '/base/6.html',
-    //           '/base/7.html',
-    //           '/base/8.html',
-    //           '/base/9.html',
-    //           '/base/10.html',
-    //           '/base/11.html',
-    //         ]
-    //       }
-    //     ],
+    //   // '/base/': [
+    //   //     {
+    //   //       title: '前端基础',
+    //   //       children: [
+    //   //         '/base/1.html',
+    //   //         '/base/2.html',
+    //   //         '/base/3.html',
+    //   //         '/base/4.html',
+    //   //         '/base/5.html',
+    //   //         '/base/6.html',
+    //   //         '/base/7.html',
+    //   //         '/base/8.html',
+    //   //         '/base/9.html',
+    //   //         '/base/10.html',
+    //   //         '/base/11.html',
+    //   //       ]
+    //   //     }
+    //   //   ],
     //     '/algorithm/': [
-    //       '/algorithm/',
     //       {
-    //         title: '第二组侧边栏下拉框的标题1',
+    //         title: '递归',
+    //         collapsable: true,
     //         children: [
-    //           '/algorithm/'
+    //           '递归.md',
     //         ]
     //       }
     //     ]
     // },
     sidebar: 'auto', // 侧边栏配置
-    sidebarDepth: 2
+    sidebarDepth: 2,
+    lastUpdated: "更新时间",
+    docsDir: "docs",
+    editLinks: true,
+    editLinkText: "本文源码地址",
+    smoothScroll: true,
   }
 };
