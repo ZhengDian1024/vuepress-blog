@@ -2,9 +2,9 @@ module.exports = {
   title: '个人主页',
   description: 'Personal Website',
   head: [ // 注入到当前页面的 HTML <head> 中的标签
-    ['link', { rel: 'icon', href: '/images/photo.jpg' }],
-    ['link', { rel: 'manifest', href: '/images/photo.jpg' }],
-    ['link', { rel: 'apple-touch-icon', href: '/images/photo.jpg' }],
+    ['link', { rel: 'icon', href: '/images/photo.jpeg' }],
+    ['link', { rel: 'manifest', href: '/images/photo.jepg' }],
+    ['link', { rel: 'apple-touch-icon', href: '/images/photo.jpeg' }],
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache'}],
     ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache,must-revalidate'}],
     ['meta', { 'http-quiv': 'expires', cotent: '0'}]
@@ -16,36 +16,37 @@ module.exports = {
   },
   themeConfig: {
     nav:[ // 导航栏配置
-      {text: '前端基础', link: '/accumulate/' },
+      {text: '前端基础', link: '/base/' },
+      {text: '前端进阶', link: '/senior/' },
       {text: '算法题库', link: '/algorithm/'},
       {text: '诗和远方', link: '/others/'},
-      {text: '微博', link: 'https://baidu.com'}      
+      {text: 'Github', link: 'https://github.com/ZhengDian1024'}
     ],
     // sidebar:{
-    //   '/accumulate/': [
+    //   '/base/': [
     //       {
     //         title: '前端积累',
     //         children: [
-    //           '/accumulate/1.html',
-    //           '/accumulate/2.html',
-    //           '/accumulate/3.html',
-    //           '/accumulate/4.html',
-    //           '/accumulate/5.html',
-    //           '/accumulate/6.html',
-    //           '/accumulate/7.html',
-    //           '/accumulate/8.html',
-    //           '/accumulate/9.html',
-    //           '/accumulate/10.html',
-    //           '/accumulate/11.html',
+    //           '/base/1.html',
+    //           '/base/2.html',
+    //           '/base/3.html',
+    //           '/base/4.html',
+    //           '/base/5.html',
+    //           '/base/6.html',
+    //           '/base/7.html',
+    //           '/base/8.html',
+    //           '/base/9.html',
+    //           '/base/10.html',
+    //           '/base/11.html',
     //         ]
     //       }
     //     ],
     //     '/algorithm/': [
-    //       '/algorithm/', 
+    //       '/algorithm/',
     //       {
     //         title: '第二组侧边栏下拉框的标题1',
     //         children: [
-    //           '/algorithm/' 
+    //           '/algorithm/'
     //         ]
     //       }
     //     ]

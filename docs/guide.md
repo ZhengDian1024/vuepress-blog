@@ -6,11 +6,6 @@ sidebarDepth: 2
 
 # 手把手教你使用 VuePress 搭建个人博客
 
-::: tip 提示
-有阅读障碍的同学，可以跳过第一至四节，下载我写好的[工具包](https://github.com/zhangyunchencc/vuepress-devkit.git): 
-`git clone https://github.com/zhangyunchencc/vuepress-devkit.git` 然后从第五节开始看。
-:::
-
 ## 一、为什么你需要一个博客？
 优秀的程序员都在写博客，写博客有很多好处：
 - 帮助自己梳理、总结、理解知识点（个人提升）
@@ -61,23 +56,30 @@ VuePress 有很多优点：
 
 ```js
 module.exports = {
-  title: 'Chen\'s blog',
-  description: '我的个人网站',
+  title: '个人主页',
+  description: 'Personal Website',
   head: [ // 注入到当前页面的 HTML <head> 中的标签
-    ['link', { rel: 'icon', href: '/logo.jpg' }], // 增加一个自定义的 favicon(网页标签的图标)
+    ['link', { rel: 'icon', href: '/images/photo.jpeg' }],
+    ['link', { rel: 'manifest', href: '/images/photo.jepg' }],
+    ['link', { rel: 'apple-touch-icon', href: '/images/photo.jpeg' }],
+    ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache'}],
+    ['meta', { 'http-quiv': 'pragma', cotent: 'no-cache,must-revalidate'}],
+    ['meta', { 'http-quiv': 'expires', cotent: '0'}]
   ],
-  base: '/', // 这是部署到github相关的配置
+  serviceWorker: true, // 是否开启 PWA
+  base: '/', // 部署到github相关的配置
   markdown: {
-    lineNumbers: false // 代码块显示行号
+    lineNumbers: true // 代码块是否显示行号
   },
   themeConfig: {
     nav:[ // 导航栏配置
-      {text: '前端基础', link: '/accumulate/' },
+      {text: '前端基础', link: '/base/' },
       {text: '算法题库', link: '/algorithm/'},
-      {text: '微博', link: 'https://baidu.com'}      
+      {text: '诗和远方', link: '/others/'},
+      {text: 'Github', link: 'https://github.com/ZhengDian1024'}
     ],
     sidebar: 'auto', // 侧边栏配置
-    sidebarDepth: 2, // 侧边栏显示2级
+    sidebarDepth: 2
   }
 };
 ```
@@ -85,14 +87,14 @@ module.exports = {
 ### 在 package.json 文件里添加两个启动命令
 ```json
 "scripts": {
-  "dev": "vuepress dev docs",
+  "start": "vuepress dev docs",
   "build": "vuepress build docs"
 }
 ```
 
-### 一切就绪 :tada: 跑起来看看吧
+### 一切就绪 跑起来看看吧
 
-    npm run dev
+    npm start
 
 ## 四、一些小亮点
 完成了基础搭建后，就可以在docs目录下新建 `.md` 文件写文章了（.md 是 Markdown 语法文件，你需要知道 Markdown 的一些基本写法，很简单，这里给大家一份 [Markdown 语法整理大集合](https://www.jianshu.com/p/b03a8d7b1719)）
@@ -171,8 +173,8 @@ config.js 文件中增加
 
 ```js
 head: [ // 注入到当前页面的 HTML <head> 中的标签
-  ['link', { rel: 'manifest', href: '/photo.jpg' }],
-  ['link', { rel: 'apple-touch-icon', href: '/photo.jpg' }],
+  ['link', { rel: 'manifest', href: '/photo.jpeg' }],
+  ['link', { rel: 'apple-touch-icon', href: '/photo.jpeg' }],
 ],
 serviceWorker: true // 是否开启 PWA
 ```
@@ -190,7 +192,7 @@ public 文件夹下新建 manifest.json 文件，添加
   "theme_color": "blue",
   "icons": [
     {
-      "src": "./photo.jpg",
+      "src": "./photo.jpeg",
       "sizes": "144x144",
       "type": "image/png"
     }
@@ -227,13 +229,9 @@ public 文件夹下新建 manifest.json 文件，添加
 
 <b>！！！注意：USERNAME 必须是你 Github 的账号名称，不是你的名字拼音，也不是你的非主流网名，不要瞎起，要保证和Github账号名一模一样！</b>
 
-例如我的 Github 账号名称是 zhangyunchencc
+例如我的 Github 账号名称是 zhengdian1024
 
-![](/images/eg13.png)
-
-那么新建仓库，Repository name 就填写为：zhangyunchencc.github.io
-
-![](/images/eg14.png)
+那么新建仓库，Repository name 就填写为：zhengdian1024.github.io
 
 <b>这个仓库建好后，不用克隆到本地，内容更新修改都在仓库二中进行。</b>
 
@@ -301,17 +299,6 @@ git push -f git@github.com:zhangyunchencc/zhangyunchencc.github.io.git master
 
 此时打开 Github Settings 中下面的链接: [https://zhangyunchencc.github.io/](https://zhangyunchencc.github.io/) 即可看到自己的主页啦~
 
-![](/images/eg2.png)
-
-#### PC 端页面是这样的：
-![](/images/eg3.png)
-
-#### 手机端页面是这样的：
-![](/images/eg4.png=200x)
-<img src="/images/eg4.png" style="width: 50%; display: block; margin: 0 auto;">
-
-可以看到导航栏变成了左上角的小图标，可以打开和收起。
-
 ## 六、发布到自己的个人域名
 如果你不满足于 https://zhangyunchencc.github.io/ 这样的域名，想要一个自己个人的专属域名，比如 http://www.zhangyunchen.cc/ ，毕竟一些大牛（阮一峰 [http://www.ruanyifeng.com/blog/](http://www.ruanyifeng.com/blog/)） 都是自己名字的网址哦，很方便很酷呢 😎 
 
@@ -321,11 +308,6 @@ git push -f git@github.com:zhangyunchencc/zhangyunchencc.github.io.git master
 推荐在 [新网](http://www.xinnet.com/domain/domain.html) 或 [万网](https://wanwang.aliyun.com/) 购买。
 
 我是在新网购买的，下面以新网为例，万网是类似的。
-
-购买完成后进入管理后台，点击 ”解析“ 按钮，添加下面两条内容：
-![](/images/eg5.png)
-
-![](/images/eg6.png)
 
 ::: warning 注意！这里有坑：
 在 万网 购买域名的同学请注意，第二条记录中的 * 请用 @ 代替，万网不支持 *
@@ -370,7 +352,7 @@ cd -
 
 此时，我们运行 npm run deploy 即可发布到自己的专属域名啦~
 
-### :clap: 大功告成，打开 [https://www.zhangyunchen.cc](https://www.zhangyunchen.cc) 看一下吧~~~
+### :clap: 大功告成，打开 [https://www.zhengdian.cc](https://www.zhengdian.cc) 看一下吧~~~
 
 拥有自己专属域名的个人博客感觉很酷哦~
 
@@ -381,12 +363,5 @@ cd -
 - 你需要一个 [Github](https://github.com/) 账号，并在里面创建两个 repo；
 - Github 需要添加 ssh key，第一次使用的同学遇到问题可以百度解决；
 - 个人博客不只可以用来写技术相关的内容，也可以有自己写的文章、随笔，甚至上传一些照片。
-
-我的 [vuepress-devkit](https://github.com/zhangyunchencc/vuepress-devkit.git) 已经开源放在了 Github 上，还有很多想要增加的功能，例如添加评论模块、自动生成侧边栏目录、增加网站分析工具等等，在这里欢迎大家 Star 或者 Fork 。
-
-以上，
-
-
-张韵晨 | Front End Engineer | 2018.10
 
 
