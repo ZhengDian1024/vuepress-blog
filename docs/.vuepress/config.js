@@ -53,7 +53,7 @@ module.exports = {
     // },
     sidebar: 'auto', // 侧边栏配置
     sidebarDepth: 2,
-    lastUpdated: "更新时间",
+    // lastUpdated: "更新时间",
     docsDir: "docs",
     editLinks: true,
     editLinkText: "本文源码地址",
